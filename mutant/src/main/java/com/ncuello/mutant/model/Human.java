@@ -18,6 +18,15 @@ public class Human {
 	@Column(name = "is_mutant")
 	private Boolean isMutant;
 	
+	public Human() {
+		super();
+	}
+	public Human(Long id, String dna, Boolean isMutant) {
+		super();
+		this.id = id;
+		this.dna = dna;
+		this.isMutant = isMutant;
+	}
 	public Long getId() {
 		return id;
 	}
