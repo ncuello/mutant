@@ -1,14 +1,22 @@
 package com.ncuello.mutant;
 
+import static org.mockito.Mockito.when;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.ncuello.mutant.dto.StatsDTO;
+import com.ncuello.mutant.repository.HumanRepository;
+import com.ncuello.mutant.service.HumanService;
+import com.ncuello.mutant.service.HumanServiceImpl;
 import com.ncuello.mutant.service.detector.DetectorDna;
 import com.ncuello.mutant.service.detector.DiagonalDownLeftDetector;
 import com.ncuello.mutant.service.detector.DiagonalDownRightDetector;
@@ -17,12 +25,19 @@ import com.ncuello.mutant.service.detector.DiagonalTopRightDetector;
 import com.ncuello.mutant.service.detector.HorizontalDetector;
 import com.ncuello.mutant.service.detector.VerticalDetector;
 import com.ncuello.mutant.util.ValidatorDna;
+import com.ncuello.mutant.util.ValidatorDnaTest;
 
 @SpringBootTest
 class MutantApplicationTests {
 	
 	@Autowired
 	private List<DetectorDna> list;
+	
+	@InjectMocks
+	private HumanServiceImpl service;
+
+    @Mock
+    private HumanRepository repository;
 
 	@Test
 	void contextLoads() {
@@ -80,9 +95,9 @@ class MutantApplicationTests {
 		String adnRow1 = "AACTAAAA";
 		String adnRow2 = "AABBAAAA";
 		String adnRow3 = "AAAABAAA";
-		String adnRow4 = "SAFAFAFS";
+		String adnRow4 = "SAFAFAFD";
 		String adnRow5 = "GDSFGSDF";
-		String adnRow6 = "SDFDSFDS";
+		String adnRow6 = "SDFDSDDS";
 		String adnRow7 = "SDGSDGSD";
 		
 		final List<String> adn = new ArrayList<String>();
@@ -446,7 +461,7 @@ class MutantApplicationTests {
 		String adnRow2 = "AZAZAZAZA";
 		String adnRow3 = "ZAZAZAZAZ";
 		String adnRow4 = "AZAZAZAZA";
-		String adnRow5 = "ZAZAAZAZ";
+		String adnRow5 = "ZAZAAZAZA";
 		String adnRow6 = "AZAZAZAZA";
 		String adnRow7 = "ZAZAZAZAZ";
 		String adnRow8 = "AZAZAZAZA";
@@ -472,4 +487,18 @@ class MutantApplicationTests {
 		
 //		list.parallelStream().forEach(row -> System.out.println(row.repetitions(adn)));
 	}
+	
+//	@Test
+//	public void stats() {
+//		when(repository.count()).thenReturn(100L);
+//        // mutant dna count
+//        when(repository.countByIsMutantTrue()).thenReturn(40L);
+//        
+//        StatsDTO stats = service.getStats();
+//        
+//        
+//        System.out.println(stats.toString());
+//        
+//        
+//	}
 }
