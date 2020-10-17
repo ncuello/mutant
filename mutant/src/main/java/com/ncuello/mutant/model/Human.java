@@ -12,6 +12,7 @@ public class Human {
 	@Id
 	private Long id;
 	
+	@Column(length = 1000)
 	private String dna;
 	
 	@Column(name = "is_mutant")
