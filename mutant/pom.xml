@@ -11,6 +11,7 @@
 	<groupId>com.ncuello.mutant</groupId>
 	<artifactId>mutant</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>mutant</name>
 	<description>Magneto API</description>
 
