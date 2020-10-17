@@ -7,4 +7,6 @@ import com.ncuello.mutant.model.Human;
 public interface HumanRepository extends JpaRepository<Human, Long> {
 
 	Human findByDna(String dna);
+	
+	Long countByIsMutantTrue();
 }
