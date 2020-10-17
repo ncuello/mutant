@@ -41,7 +41,7 @@ public class HumanServiceImpl implements HumanService {
 			return human.isMutant();
 		}
 		
-		Integer sequences = detectors.parallelStream().mapToInt(d -> d.repetitions(dna)).sum();
+		Integer sequences = repetitions(dna);
 		boolean isMutant = sequences >= MINIMAL_SEQUENCES;
 		log.info("Sequences= " + sequences);
 		
@@ -73,6 +73,10 @@ public class HumanServiceImpl implements HumanService {
 			return stats;
 		}
 		return new StatsDTO();
+	}
+	
+	public Integer repetitions(List<String> dna) {
+		return detectors.parallelStream().mapToInt(d -> d.repetitions(dna)).sum();
 	}
 	
 }
