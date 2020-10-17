@@ -7,48 +7,37 @@ import org.springframework.stereotype.Service;
 @Service
 public class VerticalDetector extends DetectorDna {
 	
-	private static final Integer MINIMAL_SEQUENCES = 2;
-	private static final Integer LENGTH_SEQUENCE = 4;
+	@Override
+	public void initializeDirection(List<String> dna) {
+		super.initializeDirection(dna);
+		this.row = 0;
+		this.column = 0;
+	}
 
 	@Override
-	public Integer repetitions(List<String> dna) {
-		
-		Integer sequences = 0;
-		Character prevChar;
-		Integer charRepeats = 0;
-		Integer totalRow = dna.size();
-		Integer row = 0;
-		Integer column = 0;
+	public boolean existsNextLine() {
+		return column < iterations;
+	}
 
-		while(column < totalRow) {
-			prevChar = dna.get(row).charAt(column);
-			
-			while(row < totalRow) {
-				if(prevChar.equals(dna.get(row).charAt(column))) {
-					charRepeats++;
-				} else {
-					charRepeats = 1;
-				}
-				
-				if(charRepeats == LENGTH_SEQUENCE) {
-					sequences++;
-					charRepeats = 0;
-				}
-//				if(sequences == MINIMAL_SEQUENCES)
-//					break;
-				prevChar = dna.get(row).charAt(column);
-				row++;
-			}
-//			if(sequences == MINIMAL_SEQUENCES)
-//				break;
-			
-			column++;
-			row = 0;
-			charRepeats = 0;
-		}
-		
-		
-		return sequences;
+	@Override
+	public Character getCharInitLine() {
+		return dna.get(row).charAt(column);
+	}
+
+	@Override
+	public boolean existsNextChar() {
+		return row < iterations;
+	}
+
+	@Override
+	public void nextChar() {
+		row++;
+	}
+
+	@Override
+	public void nextLine() {
+		column++;
+		row = 0;
 	}
 
 }

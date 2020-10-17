@@ -2,34 +2,32 @@ package com.ncuello.mutant.service.detector;
 
 import java.util.List;
 
-public abstract class DetectorDna {
+public abstract class DetectorDna implements Direction {
 	
 	private static final Integer MINIMAL_SEQUENCES = 2;
 	private static final Integer LENGTH_SEQUENCE = 4;
 	
-	protected Integer iterationss;
+	protected Integer iterations;
 	protected List<String> dna;
+	protected Integer row;
+	protected Integer column;
 	
-	
-	
+	@Override
 	public void initializeDirection(List<String> dna) {
-		this.iterationss = dna.size();
+		this.iterations = dna.size();
 		this.dna = dna;
 	}
 
 	public Integer repetitions(List<String> dna) {
+		initializeDirection(dna);
 		Integer sequences = 0;
 		Character prevChar;
 		Integer charRepeats = 0;
-		Integer iterations = dna.size();
-		Integer row = 0;
-		Integer column = 0;
 		
-		while(row < iterations) {
-			prevChar = dna.get(row).charAt(column);
-			
-			while(column < iterations) {
-				if(prevChar.equals(dna.get(row).charAt(column))) {
+		while(existsNextLine()) {
+			prevChar = getCharInitLine();
+			while(existsNextChar()) {
+				if(prevChar.equals(getCurrentChar())) {
 					charRepeats++;
 				} else {
 					charRepeats = 1;
@@ -39,20 +37,22 @@ public abstract class DetectorDna {
 					sequences++;
 					charRepeats = 0;
 				}
-				if(sequences == MINIMAL_SEQUENCES)
-					break;
-				prevChar = dna.get(row).charAt(column);
-				column++;
+//				if(sequences >= MINIMAL_SEQUENCES) {
+//					return sequences;
+//				}
+				prevChar = getCurrentChar();
+				nextChar();
 			}
-			if(sequences == MINIMAL_SEQUENCES)
-				break;
-			
-			row++;
-			column = 0;
+			nextLine();
 			charRepeats = 0;
 		}
 		
-		
 		return sequences;
 	}
+	
+	@Override
+	public Character getCurrentChar() {
+		return dna.get(row).charAt(column);
+	}
+	
 }
