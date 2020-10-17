@@ -8,7 +8,7 @@ public class ValidatorDna {
 		Integer rowQuantity = dna.size();
 		
 		boolean dnaCorrect = dna.parallelStream().allMatch(row -> 
-			row.matches("^[ACTGactg]+$") && rowQuantity.equals(row.length()));
+			row.matches("^[ACTG]+$") && rowQuantity.equals(row.length()));
 		
 		if (!dnaCorrect)
 			throw new RuntimeException("Wrong structure");
