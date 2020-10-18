@@ -23,6 +23,13 @@ public class HumanController {
 	@Autowired
 	private HumanService service;
 
+	/**
+	 * Register DNA in database. 
+	 * And it returns 200 if the person is a mutant and 403 if he is not a mutant.
+	 * 
+	 * @param HumanDTO
+	 * @return ResponseEntity
+	 */
 	@PostMapping("/mutant")
 	public ResponseEntity<String> register(@RequestBody HumanDTO mutant){
 		try {
@@ -39,6 +46,11 @@ public class HumanController {
 		}
 	}
 	
+	/**
+	 * Returns statistics of registered mutants.
+	 * 
+	 * @return StatsDTO
+	 */
 	@GetMapping("/stats")
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public StatsDTO stats() {
