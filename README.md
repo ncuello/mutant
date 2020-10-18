@@ -156,7 +156,7 @@ _Para verificar la métrica debe ejecutarse lo siguiente en la raíz del proyect
 
 _El goal anterior creará un directorio dentro de el directorio target llamado site dentro de este veremos otro folder llamado jacoco y dentro de el un archivo llamado index.html que al abrirlo se verá como se muestra a continuación:_
 
-![Screenshot](img/jacoco.jpg)
+![Screenshot](img/jacoco.png)
 
 
 ## Construido con 🛠️
