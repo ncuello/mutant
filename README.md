@@ -2,7 +2,7 @@
 
 _Magneto quiere reclutar la mayor cantidad de mutantes para poder lucharcontra los X-Men.Te ha contratado a ti para que desarrolles un proyecto que detecte si unhumano es mutante basándose en su secuencia de ADN.Para eso te ha pedido crear un programa con un método o función con la siguiente firma (Enalguno de los siguiente lenguajes: Java / Golang / C-C++ / Javascript (node) / Python / Ruby):boolean isMutant(String[] dna);   // Ejemplo JavaEn donde recibirás como parámetro un array de Strings que representan cada fila de una tablade (NxN) con la secuencia del ADN. Las letras de los Strings solo pueden ser: (A,T,C,G), lascuales representa cada base nitrogenada del ADN._
 
-/home/ncuello/Imágenes/Captura de pantalla de 2020-10-18 19-43-48.png
+![Screenshot](mutant_no-mutant.png)
 
 _Sabrás si un humano es mutante, si encuentras **más de una secuencia de cuatro letras iguales**, de forma oblicua, horizontal o vertical._
 
@@ -156,6 +156,8 @@ _Para verificar la métrica debe ejecutarse lo siguiente en la raíz del proyect
 
 _El goal anterior creará un directorio dentro de el directorio target llamado site dentro de este veremos otro folder llamado jacoco y dentro de el un archivo llamado index.html que al abrirlo se verá como se muestra a continuación:_
 
+![Screenshot](index.html)
+![alt text](index.html)
 
 
 ## Construido con 🛠️
