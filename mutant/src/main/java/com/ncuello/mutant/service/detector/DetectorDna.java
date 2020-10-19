@@ -37,6 +37,11 @@ public abstract class DetectorDna implements Direction {
 					sequences++;
 					charRepeats = 0;
 				}
+				
+				// Dejé comentado lo siguiente para realizar los tests 
+				//	y calcule la cantidad exacta de repeticiones, 
+				//	pero hace mas performante la búsqueda. Y evita seguir buscando si
+				//	ya encontró 2 repeticiones.
 //				if(sequences >= MINIMAL_SEQUENCES) {
 //					return sequences;
 //				}
