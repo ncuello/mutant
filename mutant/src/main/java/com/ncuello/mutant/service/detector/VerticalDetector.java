@@ -4,6 +4,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+/**
+ * Busca coincidencias iniciando en matriz [0][0] y avanzando 1 fila.
+ * Cuando finaliza línea se retrocede una unidad en columna y fila arranca en 0.
+ * 
+ * @author ncuello
+ *
+ */
+
 @Service
 public class VerticalDetector extends DetectorDna {
 	
