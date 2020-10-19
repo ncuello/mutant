@@ -167,3 +167,10 @@ _El goal anterior creará un directorio dentro de el directorio target llamado s
 * H2
 * JUnit
 * Jacoco
+
+## Balanceo de carga
+
+Con GCloud se pueden instanciar varios servicios y hará el balanceo de carga automáticamente.
+
+Pero como extra, cree una branch nueva **balanceador**, donde lo hago "manualmente"... 
+En el README.MD de esa branch hay más detalles.
