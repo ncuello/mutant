@@ -167,6 +167,8 @@ _El goal anterior creará un directorio dentro de el directorio target llamado s
 * H2
 * JUnit
 * Jacoco
+* Netflix Eureka
+* Netflix Zuul
 
 ## Balanceo de carga
 
